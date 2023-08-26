@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <style>-->
+<!--        div {-->
+<!--            width: auto;-->
+
+<!--            background-color: red;-->
+<!--            animation-name: example;-->
+<!--            animation-duration: 4s;-->
+<!--        }-->
+
+<!--        @keyframes example {-->
+<!--            from {background-color: red;}-->
+<!--            to {background-color: yellow;}-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+Companies:
+
+<a href="/addCompanies">Add Companies</a>
+<div>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>size</th>
+        <th>address</th>
+
+    </tr>
+
+    <tr th:each="comp:${companies}">
+        <td th:text="${comp.id}"></td>
+        <td th:text="${comp.name}"></td>
+        <td th:text="${comp.size}"></td>
+        <td th:text="${comp.address}"></td>
+        <td><a th:href="@{'/deleteCompanies/' + ${comp.id}}">delete</a></td>
+
+    </tr>
+</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>saveProduct</title>
+</head>
+<body>
+<!--Add User-->
+<!--<form action="/addProduct" method="get">-->
+<!--    <input th:if="${user != null}" type="hidden" th:value="${user.id}" name="id">-->
+<!--    Name: <input type="text" name="name" th:value="${user == null} ? '' : ${user.name}"/> <br>-->
+<!--    surname:<input type="text" name="surname" th:value="${user == null} ? '' : ${user.surname}"/><br>-->
+<!--    phone:<input type="text" name="phone" th:value="${user == null} ? '' : ${user.phone}"/><br>-->
+<!--    email:<input type="text" name="email" th:value="${user == null} ? '' : ${user.email}"/><br>-->
+<!--    password: <input type="password" name="password" th:value="${user == null} ? '' : ${user.imageName}"/><br>-->
+<!--    <input type="submit" value="save">-->
+<!--</form>-->
+
+Add Products :
+
+
+
+<form action="/addProduct" method="post">
+    Name: <input type="text" name="name"/> <br>
+
+    : Companies:
+    <select name="categories[]" multiple>
+        <option th:each="comp : ${company}" th:text="${comp.name}" th:value="${comp.id}"></option>
+    </select><br>
+
+
+    Price:<input type="text" name="price"/><br>
+    Description:<input type="text" name="description"/><br>
+    ImageName:<input type="text" name="imageName"/><br>
+
+    <input type="submit" value="save">
+</form>
+</body>
+</html>

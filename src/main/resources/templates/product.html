@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+Employees:
+
+<a href="/product">Back</a>
+<a href="/addProduct">addProduct</a>
+
+<table>
+
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>category</th>
+        <th>price</th>
+        <th>description</th>
+        <th>imageName</th>
+    </tr>
+
+    <tr th:each="product:${products}">
+
+        <td th:text="${productStat.id}"></td>
+        <td th:text="${productStat.name}"></td>
+        <select name="category.id">
+            <option th:each="cat : ${category}" th:text="${catStat.name}" th:value="${catStat.id}"></option>
+        </select>
+        <td th:text="${productStat.price}"></td>
+        <td th:text="${employee.description}"></td>
+        <td th:text="${employee.category.name}"></td>
+<!--        <td>-->
+<!--            <img th:if="${employee.picUrl != null}" th:src="@{/getImage(picName=${employee.picUrl})}" width="100" height="100"/>-->
+<!--            <img th:if="${employee.picUrl == null}" th:src="@{/getImage(picName=${employee.picUrl})}" width="100" height="100"/>-->
+<!--        </td>-->
+    </tr>
+</table>
+
+
+</body>
+</html>
